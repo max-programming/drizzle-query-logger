@@ -165,4 +165,12 @@ Built for the [Drizzle ORM](https://orm.drizzle.team/) ecosystem.
 
 ## ⭐ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=max-programming/drizzle-query-logger&type=Date)](https://www.star-history.com/#max-programming/drizzle-query-logger&Date)
+## Star History
+
+<a href="https://www.star-history.com/#max-programming/drizzle-query-logger&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=max-programming/drizzle-query-logger&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=max-programming/drizzle-query-logger&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=max-programming/drizzle-query-logger&type=Date" />
+ </picture>
+</a>
