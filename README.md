@@ -2,6 +2,16 @@
 
 A beautiful, enhanced logger for Drizzle ORM that transforms your SQL queries into visually appealing, color-coded output with syntax highlighting, icons, and detailed formatting.
 
+## 📸 Before vs After
+
+### Before (Default Drizzle Logger)
+![Before - Default Drizzle Logger](./images/before.png)
+
+### After (Enhanced Query Logger)
+![After - Enhanced Query Logger](./images/after.png)
+
+*See the dramatic difference! The enhanced logger transforms plain SQL output into beautifully formatted, color-coded queries with syntax highlighting, icons, and structured parameter display.*
+
 ## ✨ Features
 
 - 🎨 **Beautiful formatting** with box-drawing characters and colors
@@ -65,19 +75,6 @@ const logger = new EnhancedQueryLogger({
 });
 
 export const db = drizzle(client, { logger });
-```
-
-### Example Output
-
-When you run queries, you'll see beautifully formatted output like this:
-
-```
-╭─ Database Query #1
-│  Time: 14:32:15
-│  🔍 SELECT on users
-│  SQL: SELECT id, name, email FROM users WHERE age > 18
-   ├─ Parameters: $1: 18
-╰──────────────────────────────────────────────────────
 ```
 
 ## 🎯 Query Types & Icons
