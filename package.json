@@ -1,6 +1,6 @@
 {
   "name": "drizzle-query-logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -26,5 +26,21 @@
   },
   "peerDependencies": {
     "typescript": "^5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/max-programming/drizzle-query-logger"
+  },
+  "homepage": "https://github.com/max-programming/drizzle-query-logger#readme",
+  "bugs": {
+    "url": "https://github.com/max-programming/drizzle-query-logger/issues"
+  },
+  "keywords": [
+    "drizzle",
+    "orm",
+    "logger",
+    "query",
+    "logging"
+  ],
+  "license": "MIT"
 }
