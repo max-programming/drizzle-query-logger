@@ -162,3 +162,7 @@ MIT License - see the [LICENSE](LICENSE) file for details.
 ## 🙏 Acknowledgments
 
 Built for the [Drizzle ORM](https://orm.drizzle.team/) ecosystem.
+
+## ⭐ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=max-programming/drizzle-query-logger&type=Date)](https://www.star-history.com/#max-programming/drizzle-query-logger&Date)
