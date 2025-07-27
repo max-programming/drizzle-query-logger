@@ -1,14 +1,14 @@
 {
   "name": "drizzle-query-logger",
-  "version": "1.0.5",
+  "version": "1.0.6",
+  "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
     }
   },
   "type": "module",
@@ -22,10 +22,10 @@
   ],
   "devDependencies": {
     "@types/bun": "latest",
-    "drizzle-orm": "^0.44.3",
     "tsup": "^8.5.0"
   },
   "peerDependencies": {
+    "drizzle-orm": "^0.44.3",
     "typescript": "^5"
   },
   "repository": {
