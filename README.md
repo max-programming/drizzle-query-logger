@@ -8,7 +8,7 @@ A beautiful, enhanced logger for Drizzle ORM that transforms your SQL queries in
 ![Before - Default Drizzle Logger](./images/before.png)
 
 ### After (Enhanced Query Logger)
-![After - Enhanced Query Logger](./images/after.png)
+![After - Enhanced Query Logger](./images/after.jpeg)
 
 *See the dramatic difference! The enhanced logger transforms plain SQL output into beautifully formatted, color-coded queries with syntax highlighting, icons, and structured parameter display.*
 
