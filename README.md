@@ -46,11 +46,11 @@ bun add drizzle-query-logger
 ### Basic Usage
 
 ```typescript
-import Database from 'better-sqlite3';
-import { drizzle } from 'drizzle-orm/better-sqlite3';
+import { createClient } from '@libsql/client/sqlite3';
+import { drizzle } from 'drizzle-orm/libsql';
 import { EnhancedQueryLogger } from 'drizzle-query-logger';
 
-const client = new Database(':memory:');
+const client = createClient({ url: ':memory:' });
 export const db = drizzle(client, {
   logger: new EnhancedQueryLogger(),
 });
