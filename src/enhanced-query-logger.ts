@@ -33,9 +33,10 @@ export class EnhancedQueryLogger implements Logger {
     ];
 
     for (const pattern of patterns) {
-      const match = query.match(pattern);
-      if (match) return match[1];
+      const [match] = query.match(pattern) ?? [];
+      return match ?? null;
     }
+
     return null;
   }
 
