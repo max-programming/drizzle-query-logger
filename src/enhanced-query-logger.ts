@@ -1,3 +1,4 @@
+import { format } from "@sqltools/formatter";
 import type { Logger } from "drizzle-orm/logger";
 import { colors } from "./colors";
 
@@ -32,9 +33,10 @@ export class EnhancedQueryLogger implements Logger {
     ];
 
     for (const pattern of patterns) {
-      const match = query.match(pattern);
-      if (match) return match[1];
+      const [match] = query.match(pattern) ?? [];
+      return match ?? null;
     }
+
     return null;
   }
 
@@ -104,16 +106,16 @@ export class EnhancedQueryLogger implements Logger {
       return `${colors.dim}$${index + 1}:${colors.reset} ${value}`;
     });
 
-    return `\n${colors.gray}   ├─ Parameters: ${
-      colors.reset
-    }${formattedParams.join(", ")}`;
+    return `${colors.gray}├─ Parameters: ${colors.reset}${
+      formattedParams.join(", ")
+    }`;
   }
 
   private formatQuery(query: string): string {
     return query
       .replace(
         /\b(SELECT|FROM|WHERE|JOIN|INSERT|INTO|UPDATE|SET|DELETE|CREATE|DROP|ALTER|TABLE|INDEX|PRIMARY|KEY|FOREIGN|REFERENCES|NOT|NULL|DEFAULT|UNIQUE|AUTO_INCREMENT|IF|EXISTS|ON|DUPLICATE|KEY|UPDATE|VALUES|ORDER|BY|GROUP|HAVING|LIMIT|OFFSET|INNER|LEFT|RIGHT|OUTER|UNION|CASE|WHEN|THEN|ELSE|END|AS|DISTINCT|COUNT|SUM|AVG|MAX|MIN|AND|OR|IN|LIKE|BETWEEN|IS)\b/gi,
-        match => `${colors.blue}${match.toUpperCase()}${colors.reset}`
+        (match) => `${colors.blue}${match.toUpperCase()}${colors.reset}`,
       )
       .replace(/('[^']*'|"[^"]*")/g, `${colors.green}$1${colors.reset}`)
       .replace(/\b(\d+)\b/g, `${colors.cyan}$1${colors.reset}`);
@@ -136,7 +138,10 @@ export class EnhancedQueryLogger implements Logger {
     const typeColor = this.getQueryTypeColor(queryType);
     const icon = this.getQueryTypeIcon(queryType);
     const paramsStr = this.formatParams(params);
-    const formattedQuery = this.formatQuery(query);
+    const formattedQuery = this.formatQuery(
+      `\n${format(query)}`
+        .replaceAll("\n", `\n${colors.gray}│\t`),
+    );
 
     const header = `${colors.bright}${colors.cyan}╭─ Database Query ${colors.dim}#${this.queryCount}${colors.reset}`;
     const timeInfo = `${colors.gray}│  ${colors.dim}Time: ${timestamp}${colors.reset}`;
@@ -149,15 +154,15 @@ export class EnhancedQueryLogger implements Logger {
     }`;
     const queryLine = `${colors.gray}│  ${colors.dim}SQL:${colors.reset} ${formattedQuery}`;
     const footer = `${colors.gray}╰─${colors.dim}${"─".repeat(50)}${
-      colors.reset
-    }`;
+      colors.reset}
+    `;
 
     this.options.log("\n" + header);
     this.options.log(timeInfo);
     this.options.log(queryInfo);
     this.options.log(queryLine);
     if (paramsStr) {
-      this.options.log(`${colors.gray}   ${paramsStr}`);
+      this.options.log(paramsStr);
     }
     this.options.log(footer);
 

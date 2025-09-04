@@ -2,16 +2,6 @@
 
 A beautiful, enhanced logger for Drizzle ORM that transforms your SQL queries into visually appealing, color-coded output with syntax highlighting, icons, and detailed formatting.
 
-## 📸 Before vs After
-
-### Before (Default Drizzle Logger)
-![Before - Default Drizzle Logger](./images/before.png)
-
-### After (Enhanced Query Logger)
-![After - Enhanced Query Logger](./images/after.png)
-
-*See the dramatic difference! The enhanced logger transforms plain SQL output into beautifully formatted, color-coded queries with syntax highlighting, icons, and structured parameter display.*
-
 ## ✨ Features
 
 - 🎨 **Beautiful formatting** with box-drawing characters and colors
@@ -40,6 +30,16 @@ pnpm add drizzle-query-logger
 ```bash
 bun add drizzle-query-logger
 ```
+
+## 📸 Before vs After
+
+### Before (Default Drizzle Logger)
+![Before - Default Drizzle Logger](./images/before.png)
+
+### After (Enhanced Query Logger)
+![After - Enhanced Query Logger](./images/after.jpeg)
+
+*See the dramatic difference! The enhanced logger transforms plain SQL output into beautifully formatted, color-coded queries with syntax highlighting, icons, and structured parameter display.*
 
 ## 🚀 Usage
 

@@ -43,5 +43,8 @@
     "query",
     "logging"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@sqltools/formatter": "^1.2.5"
+  }
 }
