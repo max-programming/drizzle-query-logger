@@ -1,5 +1,6 @@
 {
   "lockfileVersion": 1,
+  "configVersion": 0,
   "workspaces": {
     "": {
       "name": "drizzle-query-logger",
@@ -11,7 +12,7 @@
         "tsup": "^8.5.0",
       },
       "peerDependencies": {
-        "drizzle-orm": "^0.44.3",
+        "drizzle-orm": ">=0.44.3 <1.0.0",
         "typescript": "^5",
       },
     },
