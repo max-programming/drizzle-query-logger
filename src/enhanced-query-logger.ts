@@ -124,7 +124,7 @@ export class EnhancedQueryLogger implements Logger {
   logQuery(query: string, params: unknown[]): void {
     this.queryCount++;
     const queryId = `q${this.queryCount}`;
-    const startTime = Date.now();
+    const startTime = performance.now();
     const queryType = this.getQueryType(query);
     const tableName = this.getTableName(query);
     const timestamp = new Date().toLocaleTimeString();
@@ -142,9 +142,12 @@ export class EnhancedQueryLogger implements Logger {
       `\n${format(query)}`
         .replaceAll("\n", `\n${colors.gray}│\t`),
     );
+    const executionDurationMs = performance.now() - startTime;
 
     const header = `${colors.bright}${colors.cyan}╭─ Database Query ${colors.dim}#${this.queryCount}${colors.reset}`;
-    const timeInfo = `${colors.gray}│  ${colors.dim}Time: ${timestamp}${colors.reset}`;
+    const timeInfo = `${colors.gray}│  ${colors.dim}Time: ${timestamp}  •  Duration: ${executionDurationMs.toFixed(
+      2,
+    )}ms${colors.reset}`;
     const queryInfo = `${colors.gray}│  ${icon} ${typeColor}${
       colors.bright
     }${queryType}${colors.reset}${

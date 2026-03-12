@@ -241,6 +241,14 @@ describe("EnhancedQueryLogger", () => {
       expect(timeCall).toBeDefined();
     });
 
+    it("should include execution duration", () => {
+      logger.logQuery("SELECT * FROM users", []);
+      const executionDurationCall = mockLog.mock.calls.find(call =>
+        call[0].includes("Duration:")
+      );
+      expect(executionDurationCall).toBeDefined();
+    });
+
     it("should include SQL section", () => {
       logger.logQuery("SELECT * FROM users", []);
       const sqlCall = mockLog.mock.calls.find(call => call[0].includes("SQL:"));
