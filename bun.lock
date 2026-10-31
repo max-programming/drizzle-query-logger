@@ -13,7 +13,7 @@
       },
       "peerDependencies": {
         "drizzle-orm": ">=0.44.3 <1.0.0",
-        "typescript": "^5",
+        "typescript": "^5 || ^6 || ^7",
       },
     },
   },
