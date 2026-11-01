@@ -1,6 +1,6 @@
 {
   "name": "drizzle-query-logger",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "sideEffects": false,
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
@@ -14,7 +14,10 @@
   },
   "type": "module",
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "release:patch": "npm version patch -m 'chore: release %s' && git push --follow-tags",
+    "release:minor": "npm version minor -m 'chore: release %s' && git push --follow-tags",
+    "release:major": "npm version major -m 'chore: release %s' && git push --follow-tags"
   },
   "files": [
     "dist",
